@@ -41,7 +41,9 @@ const Login = () => {
                     <input onChange={handleChange} name="password" id="password"/>
                 </label>
 
+                <button onClick={handleClick} id="submit">Login!</button>
             </form>
+            <p id="error">{error}</p>
         </ModalContainer>
     </ComponentContainer>);
 }
