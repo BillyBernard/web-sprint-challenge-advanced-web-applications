@@ -27,7 +27,7 @@ const Login = () => {
                 push('/view');
             }).catch(err => {
                 console.log(err.response.data);
-                setError('');
+                setError('The username or password does not match!');
             })
     }
 
