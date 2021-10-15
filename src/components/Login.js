@@ -1,12 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Login = () => {
+    const { push } = useHistory();
+    const [error, setError] = useState("");
+    const [credentials, setCredentials] = useState({
+        username: "",
+        password: "",
+    });
+
+    const handleChange = (e) => {
+        setCredentials({
+            ...credentials,
+            [e.target.name]:e.target.value
+        });
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:5000/api/login', credentials)
+            .then(resp => {
+                console.log(resp.data);
+            })
+    }
+
+    
     
     return(<ComponentContainer>
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
+            <form>
+                <label>Username:
+                <input onChange={handleChange} name="username" id="username"/>
+                </label>
+
+                <label>Password:
+                    <input onChange={handleChange} name="password" id="password"/>
+                </label>
+
+            </form>
         </ModalContainer>
     </ComponentContainer>);
 }
