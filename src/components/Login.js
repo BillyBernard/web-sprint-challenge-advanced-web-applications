@@ -37,17 +37,17 @@ const Login = () => {
         <ModalContainer>
             <h1>Welcome to Blogger Pro</h1>
             <h2>Please enter your account information.</h2>
-            <form>
-                <label>Username:
-                <input onChange={handleChange} name="username" id="username"/>
-                </label>
+            <FormGroup>
+                <Label>Username:
+                <Input onChange={handleChange} name="username" id="username"/>
+                </Label>
 
-                <label>Password:
-                    <input onChange={handleChange} name="password" id="password"/>
-                </label>
+                <Label>Password:
+                    <Input onChange={handleChange} name="password" id="password"/>
+                </Label>
 
-                <button onClick={handleClick} id="submit">Login!</button>
-            </form>
+                <Button onClick={handleClick} id="submit">Login!</Button>
+            </FormGroup>
             <p id="error">{error}</p>
         </ModalContainer>
     </ComponentContainer>);
